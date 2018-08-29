@@ -1,0 +1,32 @@
+<div class="col-md-6" style="margin-left:0%; margin-top: 1%">
+    <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">New Departament</h3>
+        </div>
+        <form class="form-horizontal" #form="ngForm" (ngSubmit)="register()" novalidate>
+          <div [ngClass]="classCss" role="alert" *ngIf="message">
+              <strong>{{ message.text }}</strong>
+          </div>
+          <div class="box-body">
+            <div [ngClass]="getFormGroupClass(name.invalid,name.dirty)">
+              <label for="inputName" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text"
+                        [(ngModel)]="departament.name"
+                        name="name"
+                        class="form-control"
+                        id="inputName"
+                        #name="ngModel"
+                        placeholder="Name"
+                        required>
+                <span class="help-block" *ngIf="name.invalid && name.dirty">Name is required</span>       
+              </div>
+            </div>                      
+          <div class="box-footer">          
+            <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Submit</button>
+          </div>
+        </div>  
+      </form>
+    </div>
+  </div>
+  

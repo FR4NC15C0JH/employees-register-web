@@ -1,0 +1,51 @@
+<aside class="main-sidebar">
+    <section class="sidebar">
+      <ul class="sidebar-menu" data-widget="tree">
+        <!--<li class="treeview" *ngIf="shared.user.profile == 'ADMIN'">-->
+        <li class="treeview">  
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Employees</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">     
+              <li><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> New</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
+            <!--<li><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New User</a></li>-->
+          </ul>
+        </li>
+        <!--<li class="treeview" *ngIf="shared.user.profiles == 'ADMIN'">-->
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-edit"></i> <span>Job</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> New</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
+              <!--<li><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
+              <li><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New User</a></li>-->
+            </ul>
+          </li>
+          <!--<li class="treeview" *ngIf="shared.user.profiles == 'ADMIN'">-->
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Departaments</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
+                  <li><a [routerLink]="['/departament-new']"><i class="fa fa-circle-o"></i> New</a></li>
+              </ul>
+          </li>
+      </ul>
+    </section>
+  </aside>
