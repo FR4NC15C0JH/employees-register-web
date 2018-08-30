@@ -26,11 +26,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> New</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
-              <!--<li><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
-              <li><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New User</a></li>-->
+              <li><a [routerLink]="['/job-list']"><i class="fa fa-circle-o"></i> List</a></li>
+              <li><a [routerLink]="['/job-new']"><i class="fa fa-circle-o"></i>  New</a></li>
             </ul>
           </li>
           <!--<li class="treeview" *ngIf="shared.user.profiles == 'ADMIN'">-->
@@ -42,7 +39,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
+                  <li><a [routerLink]="['/departament-list']"><i class="fa fa-circle-o"></i> List</a></li>
                   <li><a [routerLink]="['/departament-new']"><i class="fa fa-circle-o"></i> New</a></li>
               </ul>
           </li>

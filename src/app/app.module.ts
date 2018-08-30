@@ -22,6 +22,8 @@ import { JobNewComponent } from './components/job-new/job-new.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { DepartamentListComponent } from './components/departament-list/departament-list.component';
 import { DepartamentService } from './services/departament.service';
+import { MessageService } from './services/message.service'
+import { JobService } from './services/job.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { DepartamentService } from './services/departament.service';
   providers: [
     UserService,
     DepartamentService,
+    JobService,
     SharedService,
+    MessageService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
