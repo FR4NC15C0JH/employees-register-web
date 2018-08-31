@@ -20,6 +20,7 @@ export class DepartamentNewComponent implements OnInit {
   shared: SharedService;
   message: {};
   classCss: {};
+  listDepartament = [];
 
   constructor(
     private departamentService: DepartamentService,

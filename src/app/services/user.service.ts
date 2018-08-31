@@ -17,7 +17,7 @@ export class UserService {
       return this.http.put(`${LOCAL_HOST}/api/user`, user);
     }else {
       user.id = null;
-      return this.http.post(`${LOCAL_HOST}/api/user`, user);
+      return this.http.post(`${LOCAL_HOST}/api/user/create`, user);
     }
   }
 

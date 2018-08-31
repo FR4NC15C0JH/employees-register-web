@@ -38,8 +38,11 @@
             </div>
         </div>
         <div class="box-footer">
-          <button type="submit" (click)="cancelLogin()" class="btn btn-default">Cancel</button>
-          <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Login</button>
+          <button type="submit" (click)="cancelLogin()" class="btn btn-danger">Cancel</button>
+          <button type="submit" [disabled]="!form.valid" class="btn btn-primary pull-right">Login</button>
+        </div>
+        <div class="box-footer text-center">
+          <button type="submit" class="btn btn-block btn-info btn-xs" (click)="redirectUserNew()">Register a new membership</button>
         </div>
       </form>
   </div>

@@ -17,6 +17,10 @@ export class DepartamentService {
     return this.http.get(`${LOCAL_HOST}/api/departament/${page}/${count}`);
   }
 
+  list(){
+    return this.http.get(`${LOCAL_HOST}/api/departament/list`);
+  }
+
   findById(id:string){
     return this.http.get(`${LOCAL_HOST}/api/departament/${id}`);
   }

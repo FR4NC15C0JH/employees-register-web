@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { User } from '../../model/user';
+import { Departament } from '../../model/departament';
+import { SharedService } from '../../services/shared.service';
+import { UserService } from '../../services/user.service';
+import { DepartamentService } from '../../services/departament.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ResponseApi } from '../../model/response-api';
 
 @Component({
   selector: 'app-user-new',
@@ -7,9 +15,113 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNewComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("form")
+  form: NgForm;
+  
+  page: number = 0;
+  count: number = 5;
+
+  user = new User('','','','','',null,null,'');
+  shared: SharedService;
+  message: {};
+  classCss: {};
+  listDepartament = [];
+
+  constructor(
+    private userService: UserService,
+    private departamentService: DepartamentService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { 
+    this.shared = SharedService.getInstance();
+   }
 
   ngOnInit() {
+    let id:string = this.route.snapshot.params['id'];
+    if(id != undefined){
+      this.findById(id);
+    }
+    this.findAllDepartament();
+  }
+
+  findById(id:string){
+    this.userService.findById(id).subscribe((responseApi:ResponseApi) => {
+      this.user = responseApi.data;
+    }, err => {
+      this.showMessage({
+        type: 'error',
+        text: err['error']['errors'][0]
+      });
+    });
+  }
+
+  register(){
+    this.message = {};
+    this.userService.createOrUpdate(this.user).subscribe((responseApi: ResponseApi) => {
+      this.user = new User(null,'','','','',null,null,'');
+      let userReturn : User = responseApi.data;
+      this.form.resetForm();
+      this.showMessage({
+        type: 'success',
+        text: `Registered ${userReturn.name} successfully`
+      });
+      this.router.navigate(['/login']);
+    }, err => {
+      this.showMessage({
+        type: 'error',
+        text: err['error']['errors'][0]
+      });
+    });
+  }
+
+  onFileChange(event): void{
+    if(event.target.files[0].size > 2000000){
+      this.showMessage({
+        type: 'error',
+        text: 'Maximum image size is 2 MB'
+      });
+    } else {
+      this.user.image = '';
+      var reader = new FileReader();
+      reader.onloadend = (e: Event) => {
+        this.user.image = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  findAllDepartament(){
+    this.departamentService.list().subscribe((responseApi: ResponseApi) => {
+      this.listDepartament = responseApi['data'];
+    }, err => {
+      this.showMessage({
+        type: 'error',
+        text: err['error']['errors'][0]
+      });
+    });
+  }
+
+  getFormGroupClass(isInvalid: boolean, isDirty:boolean): {} {
+    return {
+      'form-group': true,
+      'has-error' : isInvalid  && isDirty,
+      'has-success' : !isInvalid  && isDirty
+    };
+  }
+
+  private showMessage(message: {type: string, text: string}): void {
+      this.message = message;
+      this.buildClasses(message.type);
+      setTimeout(() => {
+        this.message = undefined;
+      }, 3000);
+  }
+
+  private buildClasses(type: string): void {
+     this.classCss = {
+       'alert': true
+     }
+     this.classCss['alert-'+type] =  true;
   }
 
 }

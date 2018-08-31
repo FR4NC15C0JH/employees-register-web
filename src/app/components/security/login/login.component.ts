@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/user-profile',id]);
   }
 
+  redirectUserNew(){
+    this.router.navigate(['/user-new']);
+  }
+
   cancelLogin(){
     this.message = '';
     this.user = new User('','','','','',null,null,'');
