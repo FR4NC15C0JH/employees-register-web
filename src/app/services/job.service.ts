@@ -17,6 +17,10 @@ export class JobService {
     return this.http.get(`${LOCAL_HOST}/api/job/${page}/${count}`);
   }
 
+  list(){
+    return this.http.get(`${LOCAL_HOST}/api/job/list`);
+  }
+
   findById(id:string){
     return this.http.get(`${LOCAL_HOST}/api/job/${id}`);
   }

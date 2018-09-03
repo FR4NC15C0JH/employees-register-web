@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { DepartamentService } from '../../services/departament.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResponseApi } from '../../model/response-api';
+import { JobService } from '../../services/job.service';
 
 @Component({
   selector: 'app-user-new',
@@ -26,10 +27,12 @@ export class UserNewComponent implements OnInit {
   message: {};
   classCss: {};
   listDepartament = [];
+  listJobs = [];
 
   constructor(
     private userService: UserService,
     private departamentService: DepartamentService,
+    private jobService: JobService,
     private route: ActivatedRoute,
     private router: Router
   ) { 
@@ -42,6 +45,7 @@ export class UserNewComponent implements OnInit {
       this.findById(id);
     }
     this.findAllDepartament();
+    this.findAllJobs();
   }
 
   findById(id:string){
@@ -93,6 +97,17 @@ export class UserNewComponent implements OnInit {
   findAllDepartament(){
     this.departamentService.list().subscribe((responseApi: ResponseApi) => {
       this.listDepartament = responseApi['data'];
+    }, err => {
+      this.showMessage({
+        type: 'error',
+        text: err['error']['errors'][0]
+      });
+    });
+  }
+
+  findAllJobs(){
+    this.jobService.list().subscribe((responseApi: ResponseApi) => {
+      this.listJobs = responseApi['data'];
     }, err => {
       this.showMessage({
         type: 'error',

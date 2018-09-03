@@ -65,6 +65,21 @@
                 <span class="help-block" *ngIf="departament.invalid && departament.dirty">Departament is required</span>       
               </div>
            </div>
+           <div [ngClass]="getFormGroupClass(job.invalid,job.dirty)">
+              <label for="inputJob" class="col-sm-2 control-label">Select Job</label>
+              <div class="col-sm-10">
+                <select [(ngModel)]="user.job"       
+                      class="form-control select2"
+                      name="job"
+                      id="inputJob"
+                      #job="ngModel"
+                      style="width: 100%"
+                      required>
+                      <option *ngFor="let job of listJobs" [ngValue]="job">{{job.name}}</option>                      
+                </select>       
+                <span class="help-block" *ngIf="job.invalid && job.dirty">Job is required</span>       
+              </div>
+           </div>
            <div [ngClass]="getFormGroupClass(profiles.invalid,profiles.dirty)">
               <label for="inputProfiles" class="col-sm-2 control-label">Profile</label>
               <div class="col-sm-10">
