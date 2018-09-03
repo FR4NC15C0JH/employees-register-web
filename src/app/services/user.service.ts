@@ -27,5 +27,9 @@ export class UserService {
 
   findById(id:string){
     return this.http.get(`${LOCAL_HOST}/api/user/${id}`);
-  }  
+  }
+  
+  delete(id:string){
+    return this.http.delete(`${LOCAL_HOST}/api/user/${id}`);
+  }
 }

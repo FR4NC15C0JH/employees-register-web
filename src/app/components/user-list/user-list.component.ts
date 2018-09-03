@@ -48,7 +48,7 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user-new',id]);
   }
 
-  /*delete(id:string){
+  delete(id:string){
     this.messageService.confirm('Do you want to delete the user ?')
       .then((candelete:boolean) => {
           if(candelete){
@@ -67,7 +67,7 @@ export class UserListComponent implements OnInit {
           });
         }
     });
-  }*/
+  }
 
   setNextPage(event:any){
     event.preventDefault();
