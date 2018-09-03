@@ -116,6 +116,10 @@ export class UserNewComponent implements OnInit {
     });
   }
 
+  redirectLogin(){
+    this.router.navigate(['/login']);
+  }
+
   getFormGroupClass(isInvalid: boolean, isDirty:boolean): {} {
     return {
       'form-group': true,

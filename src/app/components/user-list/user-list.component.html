@@ -1,3 +1,58 @@
-<p>
-  user-list works!
-</p>
+<div [ngClass]="classCss" role="alert" *ngIf="message">
+  <strong>{{ message.text }}</strong>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">User List</h3>
+      </div>
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th class="text-center">User</th>
+            <th style="width: 10px">&nbsp;</th>
+          </tr>
+          <tr *ngFor="let user of listUser">
+            <td>
+              <div class="col-md-3">
+                  <div class="box-body box-profile">
+                    <div *ngIf="user.image == null">
+                      <img class="profile-user-img img-responsive img-circle" 
+                      src="assets/img/avatar_default.png" 
+                      alt="User profile picture">
+                    </div>
+                    <div *ngIf="user.image != null">
+                      <img class="profile-user-img img-responsive img-circle" 
+                      [src]="user.image"
+                      alt="User profile picture">
+                    </div>    
+                  </div>
+              </div>
+              <div class="form-group"> 
+                <h3 class="profile-username text-center">{{user.name}}</h3>
+                <div *ngIf="user.job != null">
+                  <p class="text-muted text-center">{{user.job.name}}</p>
+                </div>
+                <div *ngIf="user.departament != null">
+                  <p class="text-muted text-center"><i class="fa fa-fw fa-lightbulb-o"></i>{{user.departament.name}}</p>              
+                </div>
+              </div> 
+            </td>
+                <!--<td><button class="btn btn-danger" (click)="delete(departament.id)">Delete</button></td>-->
+            <td><button class="btn btn-danger">Delete</button></td>           
+          </tr>
+        </table>
+      </div>
+      <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm mo-margin pull-right">
+          <li><a href="" (click)="setPreviousOage($event)">&laquo;</a></li>
+          <li *ngFor="let p of pages; let i=index">
+            <a [ngClass]="{'pagination-focus':i==page}" href="" (click)="setPage(i,$event)">{{i+1}}</a>
+          </li>
+          <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

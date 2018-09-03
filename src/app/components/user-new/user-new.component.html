@@ -103,7 +103,8 @@
               <input type="file" id="image" (change)="onFileChange($event)">
             </div>
           </div>
-          <div class="box-footer">          
+          <div class="box-footer">
+              <button type="submit" (click)="redirectLogin()" class="btn btn-default">Return</button>          
             <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Submit</button>
           </div>
         </div>  

@@ -9,12 +9,14 @@ import { DepartamentListComponent } from "./components/departament-list/departam
 import { JobNewComponent } from "./components/job-new/job-new.component";
 import { JobListComponent } from "./components/job-list/job-list.component";
 import { UserNewComponent } from "./components/user-new/user-new.component";
+import { UserListComponent } from './components/user-list/user-list.component';
 
 export const ROUTES: Routes = [
-    { path: '' , component : HomeComponent, canActivate: [AuthGuard] },
     { path: 'user-profile/:id' , component : UserProfileComponent, canActivate: [AuthGuard] },
     { path: 'login', component : LoginComponent },
+    { path: '' , component : HomeComponent, canActivate: [AuthGuard] },
     { path: 'user-new' , component : UserNewComponent },
+    { path: 'user-list' , component : UserListComponent, canActivate: [AuthGuard] },
     { path: 'departament-new' , component : DepartamentNewComponent, canActivate: [AuthGuard] },
     { path: 'departament-list' , component : DepartamentListComponent, canActivate: [AuthGuard] },
     { path: 'job-new' , component : JobNewComponent, canActivate: [AuthGuard] },
