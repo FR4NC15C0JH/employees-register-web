@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { User } from '../../../model/user';
 import { SharedService } from '../../../services/shared.service';
 import { UserService } from '../../../services/user.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CurrentUser } from '../../../model/currentUser';
 
 @Component({

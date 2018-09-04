@@ -1,7 +1,7 @@
 <aside class="main-sidebar">
     <section class="sidebar">
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="treeview">  
+        <li class="treeview" *ngIf="shared.user.profiles == 'ADMIN'">  
           <a href="#">
             <i class="fa fa-edit"></i> <span>Employees</span>
             <span class="pull-right-container">
@@ -9,9 +9,8 @@
             </span>
           </a>
           <ul class="treeview-menu">                   
-            <li *ngIf="shared.user.profiles == 'ADMIN'"><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
-            <li *ngIf="shared.user.profiles == 'ADMIN'"><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
+            <li><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New</a></li>
           </ul>
         </li>
         <li class="treeview" *ngIf="shared.user.profiles == 'ADMIN'">

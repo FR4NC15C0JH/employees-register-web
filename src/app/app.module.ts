@@ -24,6 +24,7 @@ import { DepartamentListComponent } from './components/departament-list/departam
 import { DepartamentService } from './services/departament.service';
 import { MessageService } from './services/message.service'
 import { JobService } from './services/job.service';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { JobService } from './services/job.service';
     DepartamentNewComponent,
     JobNewComponent,
     JobListComponent,
-    DepartamentListComponent
+    DepartamentListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

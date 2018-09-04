@@ -1,7 +1,7 @@
 <div class="col-md-10" style="margin-left:0%; margin-top: 1%">
     <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">New User</h3>
+          <h3 class="box-title">Edit User</h3>
         </div>
         <form class="form-horizontal" #form="ngForm" (ngSubmit)="register()" novalidate>
           <div [ngClass]="classCss" role="alert" *ngIf="message">
@@ -104,9 +104,10 @@
             </div>
           </div>
           <div class="box-footer">
-              <button type="submit" (click)="redirectLogin()" class="btn btn-warning">Return</button>          
-            <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Submit</button>
+              <button type="submit" (click)="redirectUserProfile(user.id)" class="btn btn-warning">Return</button>        
+            <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Update</button>
           </div>
+
         </div>  
       </form>
     </div>

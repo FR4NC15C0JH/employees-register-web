@@ -1,5 +1,9 @@
+import { ResponseApi } from './../../model/response-api';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +16,5 @@ export class MenuComponent implements OnInit {
 
   constructor() { this.shared = SharedService.getInstance(); }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -43,6 +43,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  edit(id:string){
+    this.router.navigate(['/user-edit',id]);
+  }
+
   getFormGroupClass(isInvalid: boolean, isDirty:boolean): {} {
     return {
       'form-group': true,

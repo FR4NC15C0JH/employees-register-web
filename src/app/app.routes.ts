@@ -10,6 +10,7 @@ import { JobNewComponent } from "./components/job-new/job-new.component";
 import { JobListComponent } from "./components/job-list/job-list.component";
 import { UserNewComponent } from "./components/user-new/user-new.component";
 import { UserListComponent } from './components/user-list/user-list.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 export const ROUTES: Routes = [
     { path: 'user-profile/:id' , component : UserProfileComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,7 @@ export const ROUTES: Routes = [
     { path: '' , component : HomeComponent, canActivate: [AuthGuard] },
     { path: 'user-new' , component : UserNewComponent },
     { path: 'user-list' , component : UserListComponent, canActivate: [AuthGuard] },
+    { path: 'user-edit/:id' , component : UserEditComponent, canActivate: [AuthGuard] },
     { path: 'departament-new' , component : DepartamentNewComponent, canActivate: [AuthGuard] },
     { path: 'departament-list' , component : DepartamentListComponent, canActivate: [AuthGuard] },
     { path: 'job-new' , component : JobNewComponent, canActivate: [AuthGuard] },

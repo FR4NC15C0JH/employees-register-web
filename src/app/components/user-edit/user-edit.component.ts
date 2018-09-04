@@ -1,19 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from '../../model/user';
-import { SharedService } from '../../services/shared.service';
-import { UserService } from '../../services/user.service';
-import { DepartamentService } from '../../services/departament.service';
+import { ResponseApi } from './../../model/response-api';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ResponseApi } from '../../model/response-api';
-import { JobService } from '../../services/job.service';
+import { JobService } from './../../services/job.service';
+import { DepartamentService } from './../../services/departament.service';
+import { UserService } from './../../services/user.service';
+import { SharedService } from './../../services/shared.service';
+import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from '../../model/user';
 
 @Component({
-  selector: 'app-user-new',
-  templateUrl: './user-new.component.html',
-  styleUrls: ['./user-new.component.css']
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
 })
-export class UserNewComponent implements OnInit {
+export class UserEditComponent implements OnInit {
 
   @ViewChild("form")
   form: NgForm;
@@ -55,7 +55,7 @@ export class UserNewComponent implements OnInit {
     });
   }
 
-  register(){
+  update(){
     this.message = {};
     this.userService.createOrUpdate(this.user).subscribe((responseApi: ResponseApi) => {
       this.user = new User(null,'','','','',null,null,'');
@@ -65,7 +65,6 @@ export class UserNewComponent implements OnInit {
         type: 'success',
         text: `Registered ${userReturn.name} successfully`
       });
-      this.router.navigate(['/login']);
     }, err => {
       this.showMessage({
         type: 'error',
@@ -112,8 +111,8 @@ export class UserNewComponent implements OnInit {
     });
   }
 
-  redirectLogin(){
-    this.router.navigate(['/login']);
+  redirectUserProfile(id:string){
+    this.router.navigate(['/user-profile',id]);
   }
 
   getFormGroupClass(isInvalid: boolean, isDirty:boolean): {} {
@@ -138,5 +137,4 @@ export class UserNewComponent implements OnInit {
      }
      this.classCss['alert-'+type] =  true;
   }
-
 }

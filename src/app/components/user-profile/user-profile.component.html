@@ -3,6 +3,7 @@
         <div class="box-body">
           <div class="box-header with-border">
             <h3 class="box-title">User Profile</h3>
+            <button type="submit" class="btn btn-success pull-right" (click)="edit(user.id)">Edit</button>
           </div>
           <div [ngClass]="classCss" role="alert" *ngIf="message">
               <strong>{{ message.text }}</strong>
