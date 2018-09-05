@@ -63,8 +63,9 @@ export class UserEditComponent implements OnInit {
       this.form.resetForm();
       this.showMessage({
         type: 'success',
-        text: `Registered ${userReturn.name} successfully`
+        text: `Altered ${userReturn.name} successfully`
       });
+      this.router.navigate(['/user-profile',userReturn.id]);
     }, err => {
       this.showMessage({
         type: 'error',

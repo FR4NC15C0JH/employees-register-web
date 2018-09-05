@@ -39,7 +39,12 @@
                 </div>
               </div> 
             </td>
-            <td><button class="btn btn-danger" (click)="delete(user.id)">Delete</button></td>
+            <td>
+                <tr>
+                  <th><button class="btn btn-success" (click)="edit(user.id)">Edit</button></th>
+                  <th><button class="btn btn-danger" (click)="delete(user.id)">Delete</button></th>
+                </tr>
+            </td>
           </tr>
         </table>
       </div>
